@@ -6,3 +6,7 @@ var mockFinances = [
     ['Apr-2010', 1000]
 ]
 
+var total = 0
+var least = ["", 99999999]
+var greatest = ["", 0]
+var change = []
