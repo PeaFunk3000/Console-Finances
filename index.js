@@ -93,7 +93,6 @@ var greatest = ["", 0]
 var change = []
 
 for (let index = 0; index < finances.length; index++) {
-    // total = total + finances[index][1] IS THE BELOW:
     total += finances[index][1];
     if (index >= 1) {
         change.push([finances[index][0], finances[index][1] - finances[index - 1][1]])
