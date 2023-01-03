@@ -22,11 +22,15 @@ When the console is opened within the browser my resulting analysis is printed t
 N/A
 
 ## Usage
-Open index.js within this repo to view my JavaScript code. 
+Deployed using GitHub pages:
+
+https://peafunk3000.github.io/Console-Finances/
 
 Open the console to see the resulting analysis:
 
 <img src="./images/logged-analyses.JPG">
+
+Open index.js within this repository to view the financial data and my JavaScript code. 
 
 ## Credits
 N/A
