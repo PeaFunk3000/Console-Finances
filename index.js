@@ -85,9 +85,51 @@ var finances = [
     ['Dec-2016', 60988],
     ['Jan-2017', 138230],
     ['Feb-2017', 671099]
-    ];
+];
 
 var total = 0
 var least = ["", 99999999]
 var greatest = ["", 0]
 var change = []
+
+for (let index = 0; index < finances.length; index++) {
+    // total = total + finances[index][1] IS THE BELOW:
+    total += finances[index][1];
+    if (index >= 1) {
+        change.push([finances[index][0], finances[index][1] - finances[index - 1][1]])
+    }
+}
+
+function getGreatest(element) {
+    if (greatest[1] < element[1]) {
+        greatest[0] = element[0], greatest[1] = element[1];
+    }
+}
+
+function getLeast(element) {
+    if (least[1] > element[1]) {
+        least[0] = element[0], least[1] = element[1];
+    }
+}
+
+change.forEach(getGreatest)
+change.forEach(getLeast)
+
+
+function averageChange(changeArray) {
+    var totalChange = 0;
+    changeArray.forEach(element => {
+        totalChange += element[1];
+    })
+    var AVGchange = totalChange / changeArray.length;
+    return AVGchange;
+}
+
+
+var changeAVG = averageChange(change)
+
+const roundToHundredth = (value) => {
+    return Number(value.toFixed(2));
+};
+
+console.log("Financial Analysis" + "\n Total Months: " + finances.length + "\n Total: $" + total + "\n Average Change: $" + (roundToHundredth(changeAVG)) + "\n Greatest Increase in Profits: " + greatest[0] + "($" + greatest[1] + ")" + "\n Greatest Decrease in Profits: " + least[0] + "($" + least[1] + ")")
