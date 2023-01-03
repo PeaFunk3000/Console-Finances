@@ -132,4 +132,4 @@ const roundToHundredth = (value) => {
     return Number(value.toFixed(2));
 };
 
-console.log("Financial Analysis" + "\n Total Months: " + finances.length + "\n Total: $" + total + "\n Average Change: $" + (roundToHundredth(changeAVG)) + "\n Greatest Increase in Profits: " + greatest[0] + "($" + greatest[1] + ")" + "\n Greatest Decrease in Profits: " + least[0] + "($" + least[1] + ")")
+console.log("Financial Analysis \n----------------------------" + "\nTotal Months: " + finances.length + "\nTotal: $" + total + "\nAverage Change: $" + (roundToHundredth(changeAVG)) + "\nGreatest Increase in Profits: " + greatest[0] + "($" + greatest[1] + ")" + "\nGreatest Decrease in Profits: " + least[0] + "($" + least[1] + ")")
