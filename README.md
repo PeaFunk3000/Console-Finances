@@ -2,9 +2,9 @@
 
 ## Description
 
-In this Bootcamp challenge, I have used JavaScript concepts learned to complete an activity; a real-world situation. I have created code for analysing the financial records of a company. 
+In this Bootcamp challenge, I have used JavaScript concepts learned to complete an activity; a real-world situation. I have created code for analysing the basic financial records of a company. 
 
-The JavaScript code created analyses the financial records provided to calculate each of the following:
+The JavaScript code created analyses the financial records to calculate each of the following:
 
 * The total number of months included in the dataset.
 
@@ -16,16 +16,7 @@ The JavaScript code created analyses the financial records provided to calculate
 
 * The greatest decrease in profts (date and amount) over the entire period.
 
-When the console is opened within the browser my resulting analysis is printed:
-
-Financial Analysis 
-----------------------------
-Total Months: 86
-Total: $38382578
-Average Change: $-2315.12
-Greatest Increase in Profits: Feb-2012($1926159)
-Greatest Decrease in Profits: Sep-2013($-2196167)
-
+When the console is opened within the browser my resulting analysis is printed to the console.
 
 ## Installation
 N/A
