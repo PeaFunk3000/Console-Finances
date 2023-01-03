@@ -87,11 +87,13 @@ var finances = [
     ['Feb-2017', 671099]
 ];
 
+// Define variables
 var total = 0
 var least = ["", 99999999]
 var greatest = ["", 0]
 var change = []
 
+// for loop to generate a net total (profit/losses) and to populate defined var (change) array with change in profit/loss, month by month
 for (let index = 0; index < finances.length; index++) {
     total += finances[index][1];
     if (index >= 1) {
@@ -99,22 +101,25 @@ for (let index = 0; index < finances.length; index++) {
     }
 }
 
+// function to determine the greatest increase in profits, using defined var (greatest)
 function getGreatest(element) {
     if (greatest[1] < element[1]) {
         greatest[0] = element[0], greatest[1] = element[1];
     }
 }
 
+// function to determine the greatest decrease in profits, using defined var (least)
 function getLeast(element) {
     if (least[1] > element[1]) {
         least[0] = element[0], least[1] = element[1];
     }
 }
 
+// call functions for change array
 change.forEach(getGreatest)
 change.forEach(getLeast)
 
-
+// function to calculate AVG change in profit/loss over period
 function averageChange(changeArray) {
     var totalChange = 0;
     changeArray.forEach(element => {
@@ -124,11 +129,12 @@ function averageChange(changeArray) {
     return AVGchange;
 }
 
-
+// define new var changeAVG calling function on change array to calculate AVG and round to 2dp
 var changeAVG = averageChange(change)
 
 const roundToHundredth = (value) => {
     return Number(value.toFixed(2));
 };
 
+// console.log financial analyses from above
 console.log("Financial Analysis \n----------------------------" + "\nTotal Months: " + finances.length + "\nTotal: $" + total + "\nAverage Change: $" + (roundToHundredth(changeAVG)) + "\nGreatest Increase in Profits: " + greatest[0] + "($" + greatest[1] + ")" + "\nGreatest Decrease in Profits: " + least[0] + "($" + least[1] + ")")
