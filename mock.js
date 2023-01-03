@@ -57,6 +57,10 @@ function averageChange(changeArray) {
 
 var changeAVG = averageChange(change)
 
+const roundToHundredth = (value) => {
+    return Number(value.toFixed(2));
+  };
+
 
 // for (let index = 0; index < change.length; index++) {
 //     element = change[index]
@@ -71,3 +75,7 @@ console.log (total)
 console.log (greatest)
 console.log (least)
 console.log (changeAVG)
+
+
+
+console.log ("Financial Analysis" + "\n Total Months: " + mockFinances.length + "\n Total: $" + total + "\n Average Change: $" + (roundToHundredth(changeAVG)) + "\n Greatest Increase in Profits: " + greatest[0] + "($" + greatest[1] + ")" + "\n Greatest Decrease in Profits: " + least[0] + "($" + least[1] + ")")
