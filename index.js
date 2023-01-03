@@ -86,3 +86,8 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099]
     ];
+
+var total = 0
+var least = ["", 99999999]
+var greatest = ["", 0]
+var change = []
