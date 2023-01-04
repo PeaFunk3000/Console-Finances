@@ -1,3 +1,4 @@
+// master data, array of arrays
 var finances = [
     ['Jan-2010', 867884],
     ['Feb-2010', 984655],
@@ -87,54 +88,59 @@ var finances = [
     ['Feb-2017', 671099]
 ];
 
-// Define variables
+// define global variables
 var total = 0
 var least = ["", 99999999]
 var greatest = ["", 0]
 var change = []
 
-// for loop to generate a net total (profit/losses) and to populate defined var (change) array with change in profit/loss, month by month
+// for loop to generate a net total profit/loss and if statement to push month and difference in profit/loss to global var change [array], to create an array of arrays
 for (let index = 0; index < finances.length; index++) {
+    // total = total + mockFinances[index][1]
     total += finances[index][1];
     if (index >= 1) {
         change.push([finances[index][0], finances[index][1] - finances[index - 1][1]])
     }
 }
 
-// function to determine the greatest increase in profits, using defined var (greatest)
+// function declaration to compare element[1] with greatest[1], replacing greatest[0] with element[0] and greatest[1] with element[1] using if statement
 function getGreatest(element) {
     if (greatest[1] < element[1]) {
         greatest[0] = element[0], greatest[1] = element[1];
     }
 }
 
-// function to determine the greatest decrease in profits, using defined var (least)
+// function declaration to compare element[1] with least[1], replacing least[0] with element[0] and least[1] with element[1] using if statement
 function getLeast(element) {
     if (least[1] > element[1]) {
         least[0] = element[0], least[1] = element[1];
     }
 }
 
-// call functions for change array
+// call getGreatest and getLeast functions for each element in change array
 change.forEach(getGreatest)
 change.forEach(getLeast)
 
-// function to calculate AVG change in profit/loss over period
-function averageChange(changeArray) {
+// function declaration to define AVG - based on calculating total using element[1] in data array of arrays and dividing by data.length
+function averageChange(data) {
     var totalChange = 0;
-    changeArray.forEach(element => {
+    data.forEach(element => {
         totalChange += element[1];
     })
-    var AVGchange = totalChange / changeArray.length;
-    return AVGchange;
+    var AVG = totalChange / data.length;
+    return AVG;
 }
 
-// define new var changeAVG calling function on change array to calculate AVG and round to 2dp
-var changeAVG = averageChange(change)
+// define average change in profit/loss using change array, calling AVG function declared above
+var changeAVG = averageChange(change) 
 
-const roundToHundredth = (value) => {
+// function declaration to round to 2dp
+function roundToHundredth (value) {
     return Number(value.toFixed(2));
 };
 
+// define average change in 2 decimal places, calling 2dp function declared above
+var changeAVG2dp = roundToHundredth(changeAVG);
+
 // console.log financial analyses from above
-console.log("Financial Analysis \n----------------------------" + "\nTotal Months: " + finances.length + "\nTotal: $" + total + "\nAverage Change: $" + (roundToHundredth(changeAVG)) + "\nGreatest Increase in Profits: " + greatest[0] + "($" + greatest[1] + ")" + "\nGreatest Decrease in Profits: " + least[0] + "($" + least[1] + ")")
+console.log("Financial Analysis \n----------------------------" + "\nTotal Months: " + finances.length + "\nTotal: $" + total + "\nAverage Change: $" + changeAVG2dp + "\nGreatest Increase in Profits: " + greatest[0] + "($" + greatest[1] + ")" + "\nGreatest Decrease in Profits: " + least[0] + "($" + least[1] + ")")
